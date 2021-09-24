@@ -1,5 +1,8 @@
 {
   "item.tutorialmod.titanium_ingot": "Titanium Ingot",
   "item.tutorialmod.titanium_nugget": "Titanium Nugget",
-  "item.tutorialmod.raw_titanium": "Raw Titanium"
+  "item.tutorialmod.raw_titanium": "Raw Titanium",
+
+  "block.tutorialmod.titanium_block": "Titanium Block",
+  "block.tutorialmod.titanium_ore": "Titanium Ore"
 }
