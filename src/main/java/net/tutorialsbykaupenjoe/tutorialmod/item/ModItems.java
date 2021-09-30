@@ -1,5 +1,6 @@
 package net.tutorialsbykaupenjoe.tutorialmod.item;
 
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,6 +21,12 @@ public class ModItems {
 
     public static final RegistryObject<Item> RAW_TITANIUM = ITEMS.register("raw_titanium",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+
+    public static final RegistryObject<Item> TOMATO = ITEMS.register("tomato",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)
+                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(0.2f).build())));
+
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
