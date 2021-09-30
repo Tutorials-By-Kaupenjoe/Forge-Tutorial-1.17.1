@@ -4,5 +4,6 @@
   "item.tutorialmod.raw_titanium": "Raw Titanium",
 
   "block.tutorialmod.titanium_block": "Titanium Block",
-  "block.tutorialmod.titanium_ore": "Titanium Ore"
+  "block.tutorialmod.titanium_ore": "Titanium Ore",
+  "itemGroup.tutorialModTab": "Tutorial Tab"
 }
