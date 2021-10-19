@@ -8,6 +8,7 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
+import net.tutorialsbykaupenjoe.tutorialmod.item.custom.SmartBlowtorchItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -25,6 +26,9 @@ public class ModItems {
     public static final RegistryObject<Item> TOMATO = ITEMS.register("tomato",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(0.2f).build())));
+
+    public static final RegistryObject<Item> SMART_BLOW_TORCH = ITEMS.register("smart_blow_torch",
+            () -> new SmartBlowtorchItem(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB).durability(64)));
 
 
 
