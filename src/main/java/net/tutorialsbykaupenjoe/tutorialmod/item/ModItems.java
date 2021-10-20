@@ -8,6 +8,7 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
+import net.tutorialsbykaupenjoe.tutorialmod.item.custom.CoalCokeItem;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.SmartBlowtorchItem;
 
 public class ModItems {
@@ -29,6 +30,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> SMART_BLOW_TORCH = ITEMS.register("smart_blow_torch",
             () -> new SmartBlowtorchItem(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB).durability(64)));
+
+    public static final RegistryObject<Item> COAL_COKE = ITEMS.register("coal_coke",
+            () -> new CoalCokeItem(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
 
 
 
