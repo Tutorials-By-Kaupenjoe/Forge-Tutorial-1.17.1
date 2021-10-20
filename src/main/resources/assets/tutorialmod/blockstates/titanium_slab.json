@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tutorialmod:block/titanium_slab"
+    },
+    "type=double": {
+      "model": "tutorialmod:block/titanium_block"
+    },
+    "type=top": {
+      "model": "tutorialmod:block/titanium_slab_top"
+    }
+  }
+}
