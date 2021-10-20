@@ -16,6 +16,11 @@
   "block.tutorialmod.titanium_slab": "Titanium Slab",
   "block.tutorialmod.titanium_wall": "Titanium Wall",
 
+  "block.tutorialmod.titanium_button": "Titanium Button",
+  "block.tutorialmod.titanium_pressure_plate": "Titanium Pressure Plate",
+  "block.tutorialmod.titanium_door": "Titanium Door",
+  "block.tutorialmod.titanium_trapdoor": "Titanium Trapdoor",
+
   "itemGroup.tutorialModTab": "Tutorial Tab",
 
   "tooltip.tutorialmod.blowtorch_shift": "Hold \u00A7eSHIFT\u00A7r for more Information!",

@@ -51,6 +51,23 @@ public class ModBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()));
 
 
+    public static final RegistryObject<Block> TITANIUM_BUTTON = registerBlock("titanium_button",
+            () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.METAL).strength(5f)
+                    .requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> TITANIUM_PRESSURE_PLATE = registerBlock("titanium_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
+                    BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> TITANIUM_DOOR = registerBlock("titanium_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.METAL).strength(5f)
+                    .requiresCorrectToolForDrops().noOcclusion()));
+
+    public static final RegistryObject<Block> TITANIUM_TRAPDOOR = registerBlock("titanium_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.METAL).strength(5f)
+                    .requiresCorrectToolForDrops().noOcclusion()));
+
+
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, String tooltipKey) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
