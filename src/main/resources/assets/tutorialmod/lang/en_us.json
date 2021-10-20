@@ -8,5 +8,9 @@
   "block.tutorialmod.titanium_block": "Titanium Block",
   "block.tutorialmod.titanium_ore": "Titanium Ore",
   "block.tutorialmod.speedy_block": "Speedy Block",
-  "itemGroup.tutorialModTab": "Tutorial Tab"
+  "itemGroup.tutorialModTab": "Tutorial Tab",
+
+  "tooltip.tutorialmod.blowtorch_shift": "Hold \u00A7eSHIFT\u00A7r for more Information!",
+  "tooltip.tutorialmod.blowtorch": "Click a Block and see if you can blow torch it into a different Item!",
+  "tooltip.block.tutorialmod.titanium_block": "A hardened metal Block, almost impossible to break!"
 }
