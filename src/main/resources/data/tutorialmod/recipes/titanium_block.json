@@ -7,7 +7,7 @@
   ],
   "key": {
     "#": {
-      "item": "tutorialmod:titanium_ingot"
+      "tag": "forge:ingots/titanium"
     }
   },
   "result": {
