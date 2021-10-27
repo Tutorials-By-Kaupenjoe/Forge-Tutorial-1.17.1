@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TT",
+    "TT",
+    "TT"
+  ],
+  "key": {
+    "T": {
+      "item": "tutorialmod:titanium_ingot"
+    }
+  },
+  "result": {
+    "item": "tutorialmod:titanium_door"
+  }
+}

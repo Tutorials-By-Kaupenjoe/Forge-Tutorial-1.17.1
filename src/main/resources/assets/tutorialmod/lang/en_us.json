@@ -21,7 +21,7 @@
   "block.tutorialmod.titanium_door": "Titanium Door",
   "block.tutorialmod.titanium_trapdoor": "Titanium Trapdoor",
 
-  "itemGroup.tutorialModTab": "Tutorial Tab",
+  "itemGroup.tutorial_mod_tab": "Tutorial Tab",
 
   "tooltip.tutorialmod.blowtorch_shift": "Hold \u00A7eSHIFT\u00A7r for more Information!",
   "tooltip.tutorialmod.blowtorch": "Click a Block and see if you can blow torch it into a different Item!",
