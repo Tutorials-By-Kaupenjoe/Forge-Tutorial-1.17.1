@@ -65,6 +65,10 @@ public class ModItems {
             () -> new ModArmorItem(ModArmorMaterial.TITANIUM, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
 
+    public static final RegistryObject<Item> TITANIUM_HORSE_ARMOR = ITEMS.register("titanium_horse_armor",
+            () -> new HorseArmorItem(16, "titanium",
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+
 
 
     public static void register(IEventBus eventBus) {
