@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.CoalCokeItem;
+import net.tutorialsbykaupenjoe.tutorialmod.item.custom.ModArmorItem;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.SmartBlowtorchItem;
 
 public class ModItems {
@@ -61,7 +62,7 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterial.TITANIUM, EquipmentSlot.CHEST,
                     new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
     public static final RegistryObject<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet",
-            () -> new ArmorItem(ModArmorMaterial.TITANIUM, EquipmentSlot.HEAD,
+            () -> new ModArmorItem(ModArmorMaterial.TITANIUM, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
 
 
