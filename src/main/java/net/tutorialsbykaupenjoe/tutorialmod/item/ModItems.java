@@ -8,6 +8,7 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
+import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.CoalCokeItem;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.ModArmorItem;
 import net.tutorialsbykaupenjoe.tutorialmod.item.custom.SmartBlowtorchItem;
@@ -67,6 +68,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> TITANIUM_HORSE_ARMOR = ITEMS.register("titanium_horse_armor",
             () -> new HorseArmorItem(16, "titanium",
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+
+    public static final RegistryObject<Item> TOMATO_SEEDS = ITEMS.register("tomato_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.TOMATO_PLANT.get(),
                     new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
 
 
