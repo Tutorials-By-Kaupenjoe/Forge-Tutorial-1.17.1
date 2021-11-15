@@ -39,6 +39,12 @@
   "block.tutorialmod.tomato_plant": "Tomato Plant",
   "block.tutorialmod.orchid": "Orchid",
 
+  "block.tutorialmod.redwood_log": "Redwood Log",
+  "block.tutorialmod.redwood_planks": "Redwood Planks",
+  "block.tutorialmod.redwood_wood": "Redwood Wood",
+  "block.tutorialmod.stripped_redwood_log": "Stripped Redwood Log",
+  "block.tutorialmod.stripped_redwood_wood": "Stripped Redwood Wood",
+
   "itemGroup.tutorial_mod_tab": "Tutorial Tab",
 
   "tooltip.tutorialmod.blowtorch_shift": "Hold \u00A7eSHIFT\u00A7r for more Information!",
