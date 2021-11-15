@@ -2,6 +2,7 @@ package net.tutorialsbykaupenjoe.tutorialmod.block;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -76,6 +77,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> TOMATO_PLANT = BLOCKS.register("tomato_plant",
             () -> new TomatoPlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+
+    public static final RegistryObject<Block> ORCHID = registerBlock("orchid",
+            () -> new FlowerBlock(MobEffects.BLINDNESS, 2,
+                    BlockBehaviour.Properties.copy(Blocks.DANDELION)));
 
 
 
