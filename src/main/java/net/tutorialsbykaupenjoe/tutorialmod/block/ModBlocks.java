@@ -13,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.tutorialsbykaupenjoe.tutorialmod.TutorialMod;
 import net.tutorialsbykaupenjoe.tutorialmod.block.custom.SpeedyBlock;
+import net.tutorialsbykaupenjoe.tutorialmod.block.custom.TestBlock;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModCreativeModeTab;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
 
@@ -66,6 +67,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> TITANIUM_TRAPDOOR = registerBlock("titanium_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.METAL).strength(5f)
                     .requiresCorrectToolForDrops().noOcclusion()));
+
+
+    public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block",
+            () -> new TestBlock(BlockBehaviour.Properties.of(Material.METAL).strength(5f)
+                    .requiresCorrectToolForDrops()));
 
 
 

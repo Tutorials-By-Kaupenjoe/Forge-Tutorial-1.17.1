@@ -34,6 +34,8 @@
   "block.tutorialmod.titanium_door": "Titanium Door",
   "block.tutorialmod.titanium_trapdoor": "Titanium Trapdoor",
 
+  "block.tutorialmod.test_block": "Test Block",
+
   "itemGroup.tutorial_mod_tab": "Tutorial Tab",
 
   "tooltip.tutorialmod.blowtorch_shift": "Hold \u00A7eSHIFT\u00A7r for more Information!",
