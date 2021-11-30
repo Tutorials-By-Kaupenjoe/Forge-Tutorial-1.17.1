@@ -21,6 +21,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tutorialsbykaupenjoe.tutorialmod.block.ModBlocks;
 import net.tutorialsbykaupenjoe.tutorialmod.enchantment.ModEnchantments;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
+import net.tutorialsbykaupenjoe.tutorialmod.world.biome.ModBiomes;
+import net.tutorialsbykaupenjoe.tutorialmod.world.gen.ModBiomeGenertion;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,6 +43,7 @@ public class TutorialMod {
         ModBlocks.register(eventBus);
 
         ModEnchantments.register(eventBus);
+        ModBiomes.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::setupClient);
@@ -65,6 +68,8 @@ public class TutorialMod {
             AxeItem.STRIPPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPPABLES)
                     .put(ModBlocks.REDWOOD_LOG.get(), ModBlocks.STRIPPED_REDWOOD_LOG.get())
                     .put(ModBlocks.REDWOOD_WOOD.get(), ModBlocks.STRIPPED_REDWOOD_WOOD.get()).build();
+
+            ModBiomeGenertion.generateBiomes();
         });
     }
 }
