@@ -23,6 +23,7 @@ import net.tutorialsbykaupenjoe.tutorialmod.block.custom.TestBlock;
 import net.tutorialsbykaupenjoe.tutorialmod.block.custom.TomatoPlantBlock;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModCreativeModeTab;
 import net.tutorialsbykaupenjoe.tutorialmod.item.ModItems;
+import net.tutorialsbykaupenjoe.tutorialmod.world.features.tree.RedwoodTreeGrower;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -115,6 +116,27 @@ public class ModBlocks {
                 }
             });
 
+    public static final RegistryObject<Block> REDWOOD_LEAVES = registerBlock("redwood_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return 30;
+                }
+            });
+
+
+    public static final RegistryObject<Block> REDWOOD_SAPLING = registerBlock("redwood_sapling",
+            () -> new SaplingBlock(new RedwoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, String tooltipKey) {
