@@ -5,9 +5,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModConfiguredFeatures;
+import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModPlacedFeatures;
 
 import java.util.List;
 import java.util.Set;
@@ -19,10 +21,10 @@ public class ModFlowerGeneration {
         Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
 
         if(types.contains(BiomeDictionary.Type.PLAINS)) {
-            List<Supplier<ConfiguredFeature<?, ?>>> base =
+            List<Supplier<PlacedFeature>> base =
                     event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
 
-            base.add(() -> ModConfiguredFeatures.ORCHID_CONFIG);
+            base.add(() -> ModPlacedFeatures.ORCHID_PLACED);
         }
     }
 }

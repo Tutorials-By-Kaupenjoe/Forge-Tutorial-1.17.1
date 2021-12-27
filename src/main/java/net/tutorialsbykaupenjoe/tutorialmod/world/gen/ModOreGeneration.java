@@ -1,7 +1,6 @@
 package net.tutorialsbykaupenjoe.tutorialmod.world.gen;
 
-import net.minecraft.core.Registry;
-import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -9,11 +8,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorConfiguration;
-import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
+import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
@@ -27,12 +25,12 @@ public class ModOreGeneration {
     }
 
     private static OreConfiguration getOverworldFeatureConfig(OreType ore) {
-        return new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE,
+        return new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES,
                 ore.getBlock().get().defaultBlockState(), ore.getMaxVeinSize());
     }
 
     private static OreConfiguration getNetherFeatureConfig(OreType ore) {
-        return new OreConfiguration(OreConfiguration.Predicates.NETHERRACK,
+        return new OreConfiguration(OreFeatures.NETHER_ORE_REPLACEABLES,
                 ore.getBlock().get().defaultBlockState(), ore.getMaxVeinSize());
     }
 
@@ -41,7 +39,7 @@ public class ModOreGeneration {
                 ore.getBlock().get().defaultBlockState(), ore.getMaxVeinSize());
     }
 
-    private static ConfiguredFeature<?, ?> makeOreFeature(OreType ore, String dimensionToSpawnIn) {
+    private static PlacedFeature makeOreFeature(OreType ore, String dimensionToSpawnIn) {
         OreConfiguration oreFeatureConfig = null;
 
         if(dimensionToSpawnIn.equals(LevelStem.OVERWORLD.toString())) {
@@ -52,23 +50,21 @@ public class ModOreGeneration {
             oreFeatureConfig = getEndFeatureConfig(ore);
         }
 
-        RangeDecoratorConfiguration rangeDecoratorConfiguration
-                = new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.absolute(ore.getMinHeight()),
-                VerticalAnchor.absolute(ore.getMaxHeight())));
+        HeightRangePlacement heightRangePlacement = HeightRangePlacement.uniform(VerticalAnchor.absolute(ore.getMinHeight()),
+                VerticalAnchor.absolute(ore.getMaxHeight()));
 
-        return registerOreFeature(ore, oreFeatureConfig, rangeDecoratorConfiguration);
+        return registerOreFeature(oreFeatureConfig, heightRangePlacement);
     }
 
     private static void spawnOreInOverworldInGivenBiomes(OreType ore, final BiomeLoadingEvent event, Biome... biomesToSpawnIn) {
-        OreConfiguration oreFeatureConfig = new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE,
+        OreConfiguration oreFeatureConfig = new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES,
                 ore.getBlock().get().defaultBlockState(), ore.getMaxVeinSize());
 
-        RangeDecoratorConfiguration rangeDecoratorConfiguration
-                = new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.absolute(ore.getMinHeight()),
-                VerticalAnchor.absolute(ore.getMaxHeight())));
+        HeightRangePlacement heightRangePlacement = HeightRangePlacement.uniform(VerticalAnchor.absolute(ore.getMinHeight()),
+                VerticalAnchor.absolute(ore.getMaxHeight()));
 
 
-        ConfiguredFeature<?, ?> oreFeature = registerOreFeature(ore, oreFeatureConfig, rangeDecoratorConfiguration);
+        PlacedFeature oreFeature = registerOreFeature(oreFeatureConfig, heightRangePlacement);
 
         if (Arrays.stream(biomesToSpawnIn).anyMatch(b -> b.getRegistryName().equals(event.getName()))) {
             event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, oreFeature);
@@ -76,14 +72,13 @@ public class ModOreGeneration {
     }
 
     private static void spawnOreInOverworldInAllBiomes(OreType ore, final BiomeLoadingEvent event) {
-        OreConfiguration oreFeatureConfig = new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE,
+        OreConfiguration oreFeatureConfig = new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES,
                 ore.getBlock().get().defaultBlockState(), ore.getMaxVeinSize());
 
-        RangeDecoratorConfiguration rangeDecoratorConfiguration
-                = new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.absolute(ore.getMinHeight()),
-                VerticalAnchor.absolute(ore.getMaxHeight())));
+        HeightRangePlacement heightRangePlacement = HeightRangePlacement.uniform(VerticalAnchor.absolute(ore.getMinHeight()),
+                VerticalAnchor.absolute(ore.getMaxHeight()));
 
-        ConfiguredFeature<?, ?> oreFeature = registerOreFeature(ore, oreFeatureConfig, rangeDecoratorConfiguration);
+        PlacedFeature oreFeature = registerOreFeature(oreFeatureConfig, heightRangePlacement);
 
         event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, oreFeature);
     }
@@ -109,10 +104,8 @@ public class ModOreGeneration {
                 makeOreFeature(currentOreType, dimension));
     }
 
-    private static ConfiguredFeature<?, ?> registerOreFeature(OreType ore, OreConfiguration oreFeatureConfig,
-                                                              RangeDecoratorConfiguration configuredDecorator) {
-        return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, ore.getBlock().get().getRegistryName(),
-                Feature.ORE.configured(oreFeatureConfig).range(configuredDecorator)
-                        .squared().count(ore.getVeinsPerChunk()));
+    private static PlacedFeature registerOreFeature(OreConfiguration oreFeatureConfig,
+                                                    HeightRangePlacement heightRangePlacement) {
+        return Feature.ORE.configured(oreFeatureConfig).placed(heightRangePlacement);
     }
 }

@@ -1,16 +1,13 @@
 package net.tutorialsbykaupenjoe.tutorialmod.world.gen;
 
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.Features;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
-import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModConfiguredFeatures;
+import net.tutorialsbykaupenjoe.tutorialmod.world.features.ModPlacedFeatures;
 
 import java.util.List;
 import java.util.Set;
@@ -22,14 +19,10 @@ public class ModTreeGeneration {
         Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
 
         if(types.contains(BiomeDictionary.Type.PLAINS)) {
-            List<Supplier<ConfiguredFeature<?, ?>>> base =
+            List<Supplier<PlacedFeature>> base =
                     event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
 
-            base.add(() -> ModConfiguredFeatures.REDWOOD
-                    .decorated(Features.Decorators.HEIGHTMAP_WITH_TREE_THRESHOLD_SQUARED)
-                    .decorated(FeatureDecorator.COUNT_EXTRA
-                            .configured(new FrequencyWithExtraChanceDecoratorConfiguration(
-                                    2, 0.1f, 1))));
+            base.add(() -> ModPlacedFeatures.REDWOOD_PLACED);
         }
     }
 }
